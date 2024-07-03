@@ -3,17 +3,26 @@ plugins {
 }
 
 group = 'me.progfrog'
-version = '1.0-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
+    testImplementation 'info.cukes:cucumber-java:1.2.5'
+    testImplementation 'info.cukes:cucumber-junit:1.2.5'
+    testImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
+    testImplementation 'org.apache.httpcomponents:fluent-hc:4.5.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.8.0'
+    testImplementation 'com.fasterxml.jackson.core:jackson-core:2.8.9'
+    testImplementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.9'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
 }
